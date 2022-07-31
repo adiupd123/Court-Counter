@@ -46,11 +46,29 @@ public class MainActivity extends AppCompatActivity {
         displayForTeamB(teamBScore);
     }
 
+    public void decideWinner(View view){
+        String winner;
+        if(teamAScore>teamBScore)
+            winner = "TEAM A";
+        else if(teamAScore<teamBScore)
+            winner = "TEAM B";
+        else
+            winner = "TIE";
+        displayWinner(winner);
+    }
+
+    public void displayWinner(String winner){
+        TextView winnerView = (TextView) findViewById(R.id.winner_text_view);
+        winnerView.setText(winner);
+    }
+
     public void reset(View view){
         teamAScore = 0;
         teamBScore = 0;
+        String winner = "";
         displayForTeamA(teamAScore);
         displayForTeamB(teamBScore);
+        displayWinner(winner);
     }
 
     public void displayForTeamA(int score) {
